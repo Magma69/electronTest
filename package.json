@@ -1,7 +1,6 @@
 {
-  "name": "my-electron-app",
+  "name": "electrontest",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -10,5 +9,14 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^25.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magma69/electronTest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Magma69/electronTest/issues"
+  },
+  "homepage": "https://github.com/Magma69/electronTest#readme",
+  "description": ""
 }
