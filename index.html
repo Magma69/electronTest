@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <link rel="icon" href="https://assets.blocklycode.org/favicon.png">
+    <link rel="Stylesheet" href="./style/style.css">
+    
+
+    <title>My Test App!</title>
+
+
+    
+  </head>
+  
+  <body>
+
+    <div class="veryTop">
+        <h1>System Controls <span id="version">Version 0.0.0 (BETA)</span></h1>
+        <button class="close" onclick="window.close()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(150, 149, 149);"><path d="m12 6-6 8h12zM6 16h12v2H6z"></path></svg></button>
+    </div>
+    
+
+    
+    <script type="module" src="/index.js"></script>
+
+  </body>
+  <script>
+    const webSocket = new WebSocket('ws://localhost:8080');
+    webSocket.onmessage = (event) => {
+      console.log(event)
+      document.getElementById('messages').innerHTML += 
+        'Message from server: ' + event.data + "<br>";
+    };
+    webSocket.addEventListener("open", () => {
+      console.log("We are connected");
+    });
+    webSocket.addEventListener("close", () => {
+      console.log("Socket is CLOSED!")
+    });
+    function sendSOmething(event) {
+      webSocket.send("Send Me")
+      event.preventDefault();
+    }
+
+
+
+    document.getElementsByClassName("container")[0].style.display = "block";
+    document.getElementById("pageLoader").style.display = "none";
+  </script>
+</html>
